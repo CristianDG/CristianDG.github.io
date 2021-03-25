@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>Hue-br</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div id="Linguagem HBR"><h1 id="Linguagem HBR" class="header"><a href="#Linguagem HBR">Linguagem HBR</a></h1></div>
+
+<div id="Linguagem HBR-modificadores de linguagens"><h2 id="modificadores de linguagens" class="header"><a href="#Linguagem HBR-modificadores de linguagens">modificadores de linguagens</a></h2></div>
+
+<p>
+modifica o funcionamento da linguagem
+</p>
+
+<p>
+o intuito seria adaptar o funcionamento da linguagem
+para emular outras linguagens (java, javascript, haskell, scala, ...)
+</p>
+
+<p>
+alguns exemplos seram:
+</p>
+<ul>
+<li>
+modificar a sintaxe
+
+<li>
+ajustar a "pureza"
+
+</ul>
+
+
+<p>
+<code>#{ Attr, Attr = val }</code>
+</p>
+
+<div id="Linguagem HBR-modo linguagem"><h2 id="modo linguagem" class="header"><a href="#Linguagem HBR-modo linguagem">modo linguagem</a></h2></div>
+
+<p>
+é praticamente um arquivo onde fica toda a configuração necessaria para emular uma linguagem
+além de usar modificadores de linguagem, dá pra configurar keywords e operadores especiais e
+trocar o funcionamento de outros, por exemplo em PASCAL <code>=</code> significa igualdade e <code>:=</code> significa
+atribuição
+</p>
+
+
+<p>
+como usar em um arquivo:
+<code>#{ lang-mode = javascript }</code>
+</p>
+
+
+<div id="Linguagem HBR-função lambda"><h2 id="função lambda" class="header"><a href="#Linguagem HBR-função lambda">função lambda</a></h2></div>
+
+<p>
+bom, é uma função sem nome
+</p>
+
+<p>
+pode ser pura ou impura (a escolha dos modificadores)
+</p>
+
+<p>
+qual das estruturas?
+</p>
+<ul>
+<li>
+<code>(x) =&gt; { x }</code>
+
+<li>
+<code>(x) { x }</code>
+
+<li>
+<code>\x -&gt; x</code>
+
+<li>
+<code>(lambda (x) x)</code>
+
+</ul>
+
+<div id="Linguagem HBR-composição de funções"><h2 id="composição de funções" class="header"><a href="#Linguagem HBR-composição de funções">composição de funções</a></h2></div>
+
+<pre>
+a |&gt; b()  # seria b(a)
+a |&gt; b(x) # seria b(x,a)
+
+val h = f . g # h(1) é f(g(1))
+</pre>
+
+<div id="Linguagem HBR-simbolos???"><h2 id="simbolos???" class="header"><a href="#Linguagem HBR-simbolos???">simbolos???</a></h2></div>
+
+<p>
+<code>'teste</code> será q isso vai funcionar?
+</p>
+
+<div id="Linguagem HBR-Comentários"><h2 id="Comentários" class="header"><a href="#Linguagem HBR-Comentários">Comentários</a></h2></div>
+
+<pre>
+# comentario de linha
+
+#| 
+comentário multilinha VVV
+#|
+
+</pre>
+
+<div id="Linguagem HBR-Atribuição de variavel"><h2 id="Atribuição de variavel" class="header"><a href="#Linguagem HBR-Atribuição de variavel">Atribuição de variavel</a></h2></div>
+<pre>
+var a = 3
+a = 4 # tudo normal
+</pre>
+
+<div id="Linguagem HBR-Atribuição de valor"><h2 id="Atribuição de valor" class="header"><a href="#Linguagem HBR-Atribuição de valor">Atribuição de valor</a></h2></div>
+
+<pre>
+val b = "opa"
+b = "eae" # erro, valores não podem ser redefinidos
+</pre>
+
+<div id="Linguagem HBR-Atribuição de constante"><h2 id="Atribuição de constante" class="header"><a href="#Linguagem HBR-Atribuição de constante">Atribuição de constante</a></h2></div>
+<p>
+<code>const TAMANHO = 45</code>
+</p>
+
+<div id="Linguagem HBR-Tipagem"><h2 id="Tipagem" class="header"><a href="#Linguagem HBR-Tipagem">Tipagem</a></h2></div>
+
+<p>
+a tipagem será decidida pelas modificações, podendo ser que nem a de
+javascript ou a de haskell usando o sistema <a href="https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system ">Hindley-Milner</a>
+</p>
+
+<div id="Linguagem HBR-Funções"><h2 id="Funções" class="header"><a href="#Linguagem HBR-Funções">Funções</a></h2></div>
+
+<pre>
+var f = (x,y){ x }  # uma função atribuida a uma variavel pode ser redefinida
+val f = (x,y){ x }  # uma função atribuida a um valor é constante
+fun f(x,y){ x }     # uma função construida desse jeito pode ser chamada de método, como em scala
+fun f(x,y): x       # definição de um método estilo python
+fun f x y = x       # definição de um método estilo haskell/ML
+fun f(x,y) do x end # definição de um método estilo ruby/elixir/lua
+</pre>
+
+<div id="Linguagem HBR-Match expression"><h2 id="Match expression" class="header"><a href="#Linguagem HBR-Match expression">Match expression</a></h2></div>
+
+<p>
+<span class="todo">TODO</span>: WIP
+</p>
+
+<div id="Linguagem HBR-Código exemplo"><h2 id="Código exemplo" class="header"><a href="#Linguagem HBR-Código exemplo">Código exemplo</a></h2></div>
+
+<pre>
+#{no-parenthesis-application}
+
+val valor = 3
+var variável = 4
+
+fun funcao(x){
+    val sla = 3
+    sla + x
+}
+
+fun paraCada(lista, função){
+    compare lista {
+        [item:itens] -&gt; função(item) : paraCada(itens, função)
+        [] -&gt; []
+    }
+}
+
+paraCada [1 2 3] (item) =&gt; {
+    escreva(item)
+}
+
+</pre>
+
+</body>
+</html>
