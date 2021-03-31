@@ -26,8 +26,10 @@ atribuição
 como usar em um arquivo:
 `#{ lang-mode = javascript }`
 
+## Funções
 
-## função lambda
+
+### Funções lambda
 
 bom, é uma função sem nome
 
@@ -39,13 +41,32 @@ qual das estruturas?
 - `\x -> x`
 - `(lambda (x) x)`
 
-## composição de funções
+### Curried functions
+
+são funções que retornam outras funções
+
+qual das estruturas?
+- `(x)(y) => { x + y }`
+- `(x)(y) { x + y }`
+
+### Composição de funções
 
 ```
 a |> b()  # seria b(a)
 a |> b(x) # seria b(x,a)
 
 val h = f . g # h(1) é f(g(1))
+```
+
+### Declaração de funções
+
+```
+var f = (x,y){ x }  # uma função atribuida a uma variavel pode ser redefinida
+val f = (x,y){ x }  # uma função atribuida a um valor é constante
+fun f(x,y){ x }     # uma função construida desse jeito pode ser chamada de método, como em scala
+fun f(x,y): x       # definição de um método estilo python
+fun f x y = x       # definição de um método estilo haskell/ML
+fun f(x,y) do x end # definição de um método estilo ruby/elixir/lua
 ```
 
 ## simbolos???
@@ -84,16 +105,6 @@ b = "eae" # erro, valores não podem ser redefinidos
 a tipagem será decidida pelas modificações, podendo ser que nem a de
 javascript ou a de haskell usando o sistema [Hindley-Milner](https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system)
 
-## Funções
-
-```
-var f = (x,y){ x }  # uma função atribuida a uma variavel pode ser redefinida
-val f = (x,y){ x }  # uma função atribuida a um valor é constante
-fun f(x,y){ x }     # uma função construida desse jeito pode ser chamada de método, como em scala
-fun f(x,y): x       # definição de um método estilo python
-fun f x y = x       # definição de um método estilo haskell/ML
-fun f(x,y) do x end # definição de um método estilo ruby/elixir/lua
-```
 
 ## Match expression
 
