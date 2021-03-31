@@ -1,7 +1,14 @@
 
 # Linguagem HBR
 
-## modificadores de linguagens
+## Duvidas e problemas
+
+- Como diferenciar essa linguagem de racket ?
+- As funções no modo Haskell/ML será feito o currying automaticamente ?
+- Como eu posso fazer o uncurry de uma função de uma maneira simples ?
+- Ainda estou decidindo a estrutura de funções lambda e das curried functions
+
+## Modificadores de linguagens
 
 modifica o funcionamento da linguagem
 
@@ -15,7 +22,7 @@ alguns exemplos seram:
 
 `#{ Attr, Attr = val }`
 
-## modo linguagem
+## Modo linguagem
 
 é praticamente um arquivo onde fica toda a configuração necessaria para emular uma linguagem
 além de usar modificadores de linguagem, dá pra configurar keywords e operadores especiais e
@@ -27,7 +34,6 @@ como usar em um arquivo:
 `#{ lang-mode = javascript }`
 
 ## Funções
-
 
 ### Funções lambda
 
@@ -51,6 +57,8 @@ qual das estruturas?
 
 ### Composição de funções
 
+TODO: mudar isso
+
 ```
 a |> b()  # seria b(a)
 a |> b(x) # seria b(x,a)
@@ -69,7 +77,11 @@ fun f x y = x       # definição de um método estilo haskell/ML
 fun f(x,y) do x end # definição de um método estilo ruby/elixir/lua
 ```
 
-## simbolos???
+### VarArgs
+
+TODO: WIP
+
+## simbolos??? (quotation)
 
 `'teste` será q isso vai funcionar?
 
@@ -102,9 +114,11 @@ b = "eae" # erro, valores não podem ser redefinidos
 
 ## Tipagem
 
-a tipagem será decidida pelas modificações, podendo ser que nem a de
+A tipagem será decidida pelas modificações, podendo ser que nem a de
 javascript ou a de haskell usando o sistema [Hindley-Milner](https://en.wikipedia.org/wiki/Hindley%E2%80%93Milner_type_system)
 
+A ideia é que quando a linguagem não é tipada, tudo seria `Any` ou algo assim, quando a inferencia for
+ativada, tudo começaria a ganhar tipagem de dentro pra fora, como em haskell
 
 ## Match expression
 
