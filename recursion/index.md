@@ -137,7 +137,7 @@ fatorial(5)
 Nesse caso essa função não faz a memoria crescer, podendo funcionar para entradas muito maiores.
 
 ## Outros assuntos (Wip)
-- Recrusão é um assunto muito importante principalmente no paradígma funcional.
+- Recursão é um assunto muito importante principalmente no paradígma funcional.
 - É equivalente aos iteradores (for, while)
 - A recursão simples explica como construir o resultado enquanto a recursão em cauda constroi o resultado de pouco em pouco
 
